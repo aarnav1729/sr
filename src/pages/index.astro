@@ -1,0 +1,150 @@
+---
+import Icon from "astro-icon";
+import RowEntry from "../components/RowEntry.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import SocialIcon from "../components/SocialIcon.astro";
+
+import { SITE_TITLE } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{SITE_TITLE}</title>
+  </head>
+  <body class="dark:bg-black">
+    <button id="dark-mode-toggle" class="mb-2 mt-2">
+      <Icon name="tabler:sun" class="w-6 h-6 dark:text-white" />
+    </button>
+
+    <div class="text-center mb-3">
+      <h1 class="text-2xl font-bold mb-1 dark:text-white">Avanindraa Nemani</h1>
+      <h2 class="text-base dark:text-white">
+        nemaniavanindraa@gmail.com | +91 9440563910 | Hyderabad
+      </h2>
+    </div>
+
+    <div id="education" class="mb-6">
+      <SectionTitle title="Education" />
+
+      <RowEntry
+        description=""
+        name="2023 - 2026"
+        title="Bachelor of Arts (B.A.), Psychology"
+        subTitle="FLAME University"
+      />
+
+      <RowEntry
+        description="Year of completion: 2022"
+        name="Senior Secondary (XII), Arts"
+        title="The Hyderabad Public School, Begumpet, Hyderabad (ICSE board)"
+      />
+    </div>
+
+    <div id="work-experience" class="mb-6">
+      <SectionTitle title="Work Experience" />
+
+      <RowEntry
+        description="I was a member of the partnerships team at Nirmaan, where I developed concepts and made presentations to generate ideas for businesses with capital that are interested in CSR, which encouraged me to deal with money inventively prioritizing efficiency."
+        name="Jun 2023 - Jul 2023 (1 month)"
+        title="Partnerships Intern"
+        subTitle="Nirmaan Organisation, Hyderabad"
+      />
+    </div>
+
+    <div id="positions-of-responsibility" class="mb-6">
+      <SectionTitle title="Positions of Responsibility" />
+
+      <RowEntry
+        description="House Captain in School, Partnerships team member, Team leader Nirmaan Business plan competition."
+        name="Positions of Responsibility"
+        title=""
+      />
+    </div>
+
+    <div id="projects" class="mb-6">
+      <SectionTitle title="Projects" />
+
+      <RowEntry
+        description="My friend and I are the only proprietors of Poster Factory. We provide the ability to alter the size and style of the posters we sell in addition to producing them in a variety of designs. My friend, with whom I eventually partnered, initiated it, and we began working together. My primary responsibility in this company is to increase sales and generate concepts that will increase both sales and profitability. We began our very straightforward business after seeing the market around us. People were in need of posters, but since our campus is situated in a valley, no stores or companies were offering the particular sort of posters that college students were seeking for. We started developing and printing the posters with this population in mind as our target market. We are now producing stickers and polaroid in addition to posters, and we have larger, better ideas for the future."
+        name="Jan 2023 - Present"
+        title="Posterfactory.co"
+        subTitle="https://www.instagram.com/posterfactory.co"
+      />
+    </div>
+
+    <div id="skills" class="mb-6">
+      <SectionTitle title="Skills" />
+
+      <RowEntry description="English Proficiency (Spoken)" name="Advanced" />
+      <RowEntry description="English Proficiency (Written)" name="Advanced" />
+      <RowEntry description="MS-Office" name="Intermediate" />
+      <RowEntry description="Marketing" name="Intermediate" />
+      <RowEntry description="Sales" name="Intermediate" />
+      <RowEntry description="Canva" name="Intermediate" />
+    </div>
+
+    <div id="additional-details" class="mb-6">
+      <SectionTitle title="Additional Details" />
+
+      <RowEntry
+        description="Secured 1st place in the Nirmaan business plan competition, pursue gardening as a hobby, volleyball player on the flame volleyball team, House captain in school, Car and bike enthusiast."
+        name="Additional Details"
+      />
+    </div>
+
+    <div id="social" class="justify-center flex flex-row mb-2">
+      <div class="mr-4">
+        <SocialIcon icon="fa-brands:linkedin" label="linkedin" url="https://www.linkedin.com/" />
+      </div>
+      <div class="mr-4">
+        <SocialIcon icon="fa-brands:medium" label="medium" url="https://www.medium.com/" />
+      </div>
+      <div class="mr-4">
+        <SocialIcon icon="fa-brands:dev" label="dev" url="https://www.dev.to/" />
+      </div>
+      <div class="mr-4">
+        <SocialIcon
+          icon="fa-brands:stack-overflow"
+          label="stack-overflow"
+          url="#"
+        />
+      </div>
+      <div>
+        <SocialIcon icon="ant-design:global-outlined" label="website" url="https://www.stackoverflow.com/" />
+      </div>
+    </div>
+
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      window.onload = function () {
+        const element = document.getElementById("dark-mode-toggle");
+
+        if (element) {
+          element.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+
+            localStorage.theme = document.documentElement.classList.contains(
+              "dark"
+            )
+              ? "dark"
+              : "light";
+          });
+        }
+      };
+    </script>
+  </body>
+</html>
